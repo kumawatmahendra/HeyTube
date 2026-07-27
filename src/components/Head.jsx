@@ -9,7 +9,7 @@ function Head() {
     dispatch(toggleMenu());
   }
   return (
-    <div className='grid grid-flow-col p-2 m-2 shadow-lg'>
+    <div className='grid grid-flow-col p-2 m-2 shadow-lg '>
       <div className='flex col-span-1 items-center'>
         <img
           onClick={() => toggleMenuHandler()}
