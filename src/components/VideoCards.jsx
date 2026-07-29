@@ -1,7 +1,6 @@
 import React from 'react'
 
 function VideoCards({ info }) {
-  console.log(info);
   const { snippet, statistics } = info;
   const { channelTitle, title, thumbnails } = snippet;
   const { viewCount } = statistics

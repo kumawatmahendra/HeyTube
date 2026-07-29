@@ -18,8 +18,8 @@ function VideoConatianer() {
   return (
     <div className='flex flex-wrap'>
       {video.map((video) => (
-        <Link to={"/watch?v=" + video.id}>
-          <VideoCards key={video.id} info={video} />
+        <Link key={video.id} to={"/watch?v=" + video.id}>
+          <VideoCards info={video} />
         </Link>))}
     </div>
   )
