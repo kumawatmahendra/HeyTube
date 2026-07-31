@@ -20,7 +20,7 @@ function SubscribeSection() {
             alt="img"
             className="w-10 h-10 rounded-full cursor-pointer"
           />
-          <div className="font-bold cursor-pointer">channel name</div>
+          <div className="font-bold cursor-pointer">Your TV</div>
 
           <button
             onClick={handleSubscribe}

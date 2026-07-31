@@ -24,7 +24,7 @@ function Head() {
   }, [searchQuery])
 
   const getSearchSuggestions = async () => {
-    console.log("api call " + searchQuery);
+    // console.log("api call " + searchQuery);
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery)
     const json = await data.json()
     setSuggestions(json[1])
@@ -73,7 +73,7 @@ function Head() {
             🔍
           </button>
         </div>
-        
+
         {showSuggestions && suggestion.length > 0 && (
           <div className="absolute top-10 bg-white shadow-lg rounded-lg py-2 border border-gray-100 w-[22rem] z-50">
             <ul>
