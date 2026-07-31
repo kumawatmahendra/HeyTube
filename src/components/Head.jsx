@@ -52,31 +52,38 @@ function Head() {
         />
         <a href="/">
           <img
-            className='h-18  mx-2 '
+            className='h-20  mx-2 '
             alt="Logo"
             src="./src/assets/Logo.png"
           />
         </a>
       </div>
-      <div
-        className="col-span-10 px-10 justify-center ">
-        <div>
+      <div className="col-span-10 flex justify-center items-center relative">
+        <div className="flex items-center w-1/2 max-w-xl">
           <input
-            className='w-1/2  items-center border border-gray-400 p-2 rounded-l-full ' type="text" placeholder='Search'
+            className="w-full border border-gray-400 px-4 py-1.5 rounded-l-full outline-none text-sm"
+            type="text"
+            placeholder="Search"
             value={searchQuery}
-            onChange={(event) => setSearchQuery(event.target.value)}
+            onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestion(true)}
-            onBlur={() => setShowSuggestion(false)}
+            onBlur={() => setTimeout(() => setShowSuggestion(false), 200)}
           />
-          <button className='border   border-gray-400 px-5 py-2 bg-gray-100 rounded-r-full' onClick={""}>🔍</button>
+          <button className="border border-gray-400 border-l-0 px-5 py-1.5 h-8.5 bg-gray-100 rounded-r-full hover:bg-gray-200">
+            🔍
+          </button>
         </div>
-        {showSuggestions && (
-          <div className=" fixed bg-white shadow-lg rounded-lg py-2 px-3 border border-gray-100 w-[30rem]">
+        
+        {showSuggestions && suggestion.length > 0 && (
+          <div className="absolute top-10 bg-white shadow-lg rounded-lg py-2 border border-gray-100 w-[22rem] z-50">
             <ul>
               {suggestion.map((e) => (
-                <li key={e}
-                  className='py-2  shadow-sm hover:bg-gray-100'>
-                  🔍 {e}</li>
+                <li
+                  key={e}
+                  className="px-4 py-2  hover:bg-gray-100 cursor-pointer flex items-center gap-2"
+                >
+                  🔍 {e}
+                </li>
               ))}
             </ul>
           </div>
@@ -86,7 +93,7 @@ function Head() {
         <img
           className='h-12'
           alt="user"
-          src="https://t4.ftcdn.net/jpg/12/49/12/63/360_F_1249126338_leS5yTD2NdGuTra86mGyq9heEAxLbX5O.jpg" />
+          src="https://i.pinimg.com/236x/03/eb/d6/03ebd625cc0b9d636256ecc44c0ea324.jpg" />
       </div>
     </div>
   )
