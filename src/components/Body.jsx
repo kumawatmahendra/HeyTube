@@ -4,9 +4,11 @@ import { Outlet } from 'react-router-dom'
 
 function Body() {
   return (
-    <div className='lex pt-16 sm:pt-20'>
+    <div className="flex pt-16 sm:pt-20 min-h-screen">
       <Sidebar />
-      <Outlet />
+      <div className="flex-1 overflow-x-hidden">
+        <Outlet />
+      </div>
     </div>
   )
 }

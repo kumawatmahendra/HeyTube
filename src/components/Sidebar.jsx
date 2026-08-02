@@ -5,41 +5,52 @@ import { Link } from 'react-router-dom'
 function Sidebar() {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen)
 
-  return !isMenuOpen ? null : (
-    <div className='fixed md:static 
-    top-14 left-0 
-    h-[calc(100vh-3.5rem)] 
-    w-70 
-    p-5 shadow-lg bg-white 
-    z-40 overflow-y-auto
-  '>
+  // Menu band ho to kuch mat dikhao
+  if (!isMenuOpen) return null
+
+  return (
+    <div className="
+      w-48 sm:w-56 
+      flex-shrink-0 
+      p-4 
+      shadow-lg 
+      bg-white 
+      h-[calc(100vh-4rem)] 
+      overflow-y-auto
+      sticky top-16
+    ">
       <ul>
-        <li className='font-bold'>  <Link to="/">Home</Link> </li>
-        <li className='font-bold'>Shorts</li>
+        <li className="font-bold py-1">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="font-bold py-1">Shorts</li>
       </ul>
-      <h1 className='font-bold pt-5' >Subscriptions</h1>
+
+      <h1 className="font-bold pt-4">Subscriptions</h1>
       <ul>
-        <li>Music</li>
-        <li>Sports</li>
-        <li>Gaming</li>
-        <li>Movies</li>
+        <li className="py-0.5">Music</li>
+        <li className="py-0.5">Sports</li>
+        <li className="py-0.5">Gaming</li>
+        <li className="py-0.5">Movies</li>
       </ul>
-      <h1 className='font-bold pt-5' >You</h1>
+
+      <h1 className="font-bold pt-4">You</h1>
       <ul>
-        <li>Your channel</li>
-        <li>History</li>
-        <li>Playlists</li>
-        <li>Watch Later</li>
-        <li>Liked videos</li>
-        <li>Your videos</li>
-        <li>Downloads</li>
+        <li className="py-0.5">Your channel</li>
+        <li className="py-0.5">History</li>
+        <li className="py-0.5">Playlists</li>
+        <li className="py-0.5">Watch Later</li>
+        <li className="py-0.5">Liked videos</li>
+        <li className="py-0.5">Your videos</li>
+        <li className="py-0.5">Downloads</li>
       </ul>
-      <h1 className='font-bold pt-5' >Explore</h1>
+
+      <h1 className="font-bold pt-4">Explore</h1>
       <ul>
-        <li>Shopping</li>
-        <li>Live</li>
-        <li>Courses</li>
-        <li>Memberships</li>
+        <li className="py-0.5">Shopping</li>
+        <li className="py-0.5">Live</li>
+        <li className="py-0.5">Courses</li>
+        <li className="py-0.5">Memberships</li>
       </ul>
     </div>
   )
