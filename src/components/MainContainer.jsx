@@ -7,6 +7,8 @@ function MainContainer() {
     <div className=''>
       <ButtonList />
       <VideoConatianer />
+      <VideoConatianer />
+      <VideoConatianer />
     </div>
   )
 }
