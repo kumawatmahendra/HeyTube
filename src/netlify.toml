@@ -1,6 +1,7 @@
+[functions]
+  directory = "netlify/functions"
+
 [[redirects]]
-  from = "/api/suggest"
-  to = "https://suggestqueries.google.com/complete/search"
+  from = "/*"
+  to = "/index.html"
   status = 200
-  force = true
-  query = {client = "firefox", ds = "yt", q = ":q"}

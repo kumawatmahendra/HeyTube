@@ -32,7 +32,7 @@ function Head() {
 
   const getSearchSuggestions = async () => {
     if (!searchQuery.trim()) return
-
+  
     try {
       const data = await fetch(YOUTUBE_SEARCH_API + encodeURIComponent(searchQuery))
       const json = await data.json()
