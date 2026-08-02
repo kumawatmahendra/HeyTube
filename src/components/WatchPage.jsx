@@ -8,35 +8,46 @@ import LiveChat from './LiveChat'
 
 function WatchPage() {
   const [searchParams] = useSearchParams()
-  console.log(searchParams.get("v"));
-
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(closeMenu())
   }, [])
+
   return (
-    <div className='flex flex-col w-full pt-1'>
-      <div className='flex px-5 pt-3  w-full'>
-        <div>
-          <iframe
-            width="1000"
-            height="600"
-            src={`https://www.youtube.com/embed/${searchParams.get("v")}?controls=1`}
-            title="YouTube video player"
-            frameBorder=""
-            allowFullScreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          ></iframe>
+    <div className="w-full px-2 sm:px-4">
+      <div className="flex flex-col lg:flex-row gap-4">
+
+        {/* Video + Subscribe */}
+        <div className="w-full lg:w-[65%]">
+          <div className="relative w-full aspect-video mb-2">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full rounded-lg"
+              src={`https://www.youtube.com/embed/${searchParams.get("v")}?controls=1`}
+              title="YouTube video player"
+              allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
+          </div>
+          <SubscribeSection />
+
+          {/* Desktop: comments yahan */}
+          <div className="hidden lg:block">
+            <CommentsContainer />
+          </div>
         </div>
-        <div className='w-full'>
+
+        {/* LiveChat */}
+        <div className="w-full lg:w-[35%]">
           <LiveChat />
         </div>
       </div>
-      <SubscribeSection />
-      <CommentsContainer />
+
+      {/* Mobile: comments chat ke baad */}
+      <div className="block lg:hidden">
+        <CommentsContainer />
+      </div>
     </div>
-
-
   )
 }
 

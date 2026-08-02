@@ -19,7 +19,7 @@ function LiveChat() {
           massage: generateRandomMassage()
         })
       );
-    }, 800)
+    }, 1000)
     return () => clearInterval(i)
   }, []);
 
@@ -27,7 +27,7 @@ function LiveChat() {
   return (
     <>
       <div
-        className='w-full ml-2 p-2 border border-black  h-[600px] bg-slate-100 rounded-lg overflow-y-hidden overflow-y-scroll flex flex-col-reverse'>
+        className='w-full p-2 border border-black h-[300px] md:h-[400px] lg:h-[500px] bg-slate-100 rounded-lg overflow-y-scroll flex flex-col-reverse'>
         <div >
           {
             chatMassages.map((e, index) => (
@@ -40,23 +40,25 @@ function LiveChat() {
         className=' w-full p-2 ml-2 border border-black'
         onSubmit={(e) => {
           e.preventDefault()
+          if (liveMassage.trim() === "") return
           dispatch(
             addMassage({
               name: "Mahendra",
               massage: liveMassage
             })
           )
+          setLiveMassage("")
         }}
       >
         <input
-          className='w-[300px] border border-black'
+          className='w-full sm:w-[200px] md:w-[250px] border border-black px-2 py-1 rounded'
           type="text"
           value={liveMassage}
           onChange={(e) => {
             setLiveMassage(e.target.value)
           }}
         />
-        <button className='px-2 mx-2 border border-black bg-green-300 rounded-lg'>Send</button>
+        <button className='px-2 mx-2 border bg-slate-100 border-black hover:bg-red-300 text-black cursor-pointer rounded-lg'>Chat</button>
       </form>
     </>
 
@@ -64,3 +66,4 @@ function LiveChat() {
 }
 
 export default LiveChat
+

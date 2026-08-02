@@ -6,7 +6,13 @@ function Sidebar() {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen)
 
   return !isMenuOpen ? null : (
-    <div className='p-5 shadow-lg w-48 pt-8'>
+    <div className='fixed md:static 
+    top-14 left-0 
+    h-[calc(100vh-3.5rem)] 
+    w-70 
+    p-5 shadow-lg bg-white 
+    z-40 overflow-y-auto
+  '>
       <ul>
         <li className='font-bold'>  <Link to="/">Home</Link> </li>
         <li className='font-bold'>Shorts</li>

@@ -42,26 +42,28 @@ function Head() {
     dispatch(toggleMenu());
   }
   return (
-    <div className='grid grid-flow-col p-2 shadow-md fixed top-0 left-0 right-0 z-50 bg-white'>
-      <div className='flex col-span-1 items-center'>
+    <div className="grid grid-flow-col items-center px-2 sm:px-4 py-2 shadow-md fixed top-0 left-0 right-0 z-50 bg-white h-14 sm:h-16">
+
+      <div className="flex col-span-1 items-center gap-1">
         <img
-          onClick={() => toggleMenuHandler()}
-          className='h-8 cursor-pointer'
+          onClick={toggleMenuHandler}
+          className="h-6 sm:h-6 cursor-pointer"
           alt="Menu"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvQyG-DTVCNRzdrHehKjeC_vD102dzQwX2cYBgSWGH_g&s=10"
         />
         <a href="/">
           <img
-            className='h-20  mx-2 '
+            className="h-9 sm:h-12 mx-1"
             alt="Logo"
             src="./src/assets/Logo.png"
           />
         </a>
       </div>
+
       <div className="col-span-10 flex justify-center items-center relative">
-        <div className="flex items-center w-1/2 max-w-xl">
+        <div className="flex items-center w-[55%] sm:w-[60%] md:w-[50%] max-w-xl">
           <input
-            className="w-full border border-gray-400 px-4 py-1.5 rounded-l-full outline-none text-sm"
+            className="w-full border border-gray-400 px-3 sm:px-4 py-1.5 sm:py-2 rounded-l-full outline-none text-sm"
             type="text"
             placeholder="Search"
             value={searchQuery}
@@ -69,19 +71,16 @@ function Head() {
             onFocus={() => setShowSuggestion(true)}
             onBlur={() => setTimeout(() => setShowSuggestion(false), 200)}
           />
-          <button className="border border-gray-400 border-l-0 px-5 py-1.5 h-8.5 bg-gray-100 rounded-r-full hover:bg-gray-200">
+          <button className="border border-gray-400 border-l-0 px-3 sm:px-5 py-1.5 sm:py-1.5 bg-gray-100 rounded-r-full hover:bg-gray-200">
             🔍
           </button>
         </div>
 
         {showSuggestions && suggestion.length > 0 && (
-          <div className="absolute top-10 bg-white shadow-lg rounded-lg py-2 border border-gray-100 w-[22rem] z-50">
+          <div className="absolute top-11 bg-white shadow-lg rounded-lg py-2 border w-[70%] max-w-xl z-50">
             <ul>
               {suggestion.map((e) => (
-                <li
-                  key={e}
-                  className="px-4 py-2  hover:bg-gray-100 cursor-pointer flex items-center gap-2"
-                >
+                <li key={e} className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                   🔍 {e}
                 </li>
               ))}
@@ -89,11 +88,12 @@ function Head() {
           </div>
         )}
       </div>
-      <div className='col-span-1 items-center'>
+      <div className="col-span-1 flex justify-end items-center">
         <img
-          className='h-12'
+          className="h-6 w-6 sm:h-10 sm:w-10 rounded-full cursor-pointer object-cover"
           alt="user"
-          src="https://i.pinimg.com/236x/03/eb/d6/03ebd625cc0b9d636256ecc44c0ea324.jpg" />
+          src="https://i.pinimg.com/236x/03/eb/d6/03ebd625cc0b9d636256ecc44c0ea324.jpg"
+        />
       </div>
     </div>
   )

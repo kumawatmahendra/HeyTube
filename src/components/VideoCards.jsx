@@ -1,17 +1,27 @@
 import React from 'react'
+import { formatViews } from '../utlis/helper'
 
 function VideoCards({ info }) {
-  const { snippet, statistics } = info;
-  const { channelTitle, title, thumbnails } = snippet;
+  const { snippet, statistics } = info
+  const { channelTitle, title, thumbnails } = snippet
   const { viewCount } = statistics
+
   return (
-    <div className='p-2 m-2 w-72 h-full  rounded-lg shadow  hover:bg-gray-3ff00 '>
-      <img className='rounded-lg font-bold ' src={thumbnails.medium.url} alt='thumbnail' />
-      <ul>
-        <li className='font-bold py-2'>{title}</li>
-        <li>{channelTitle}</li>
-        <li>{viewCount} views</li>
-      </ul>
+    <div className="p-1 sm:p-2 w-full cursor-pointer hover:bg-gray-50 rounded-lg">
+      <img
+        className="rounded-xl w-full aspect-video object-cover"
+        src={thumbnails.medium.url}
+        alt="thumbnail"
+      />
+      <div className="mt-2 px-1">
+        <h3 className="font-semibold text-sm sm:text-base line-clamp-2 leading-snug">
+          {title}
+        </h3>
+        <p className="text-xs sm:text-sm text-gray-600 mt-1">{channelTitle}</p>
+        <p className="text-xs sm:text-sm text-gray-500">
+          {formatViews(viewCount)} views
+        </p>
+      </div>
     </div>
   )
 }

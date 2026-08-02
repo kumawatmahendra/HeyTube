@@ -94,29 +94,11 @@ const youtubeChat = [
   , "Have a nice day!"
 ];
 
-
-export function isPrime(num) {
-  if (num <= 1) {
-      return false;
-  }
-  for (let i = 2; i <= Math.sqrt(num); i++) {
-      if (num % i === 0) {
-          return false;
-      }
-  }
-  return true;
-}
-
-function findNthPrime(n) {
-  let count = 0;
-  let num = 2;
-  
-  while (count < n) {
-      if (isPrime(num)) {
-          count++;
-      }
-      num++;
-  }
-  return num - 1;
+export const formatViews = (num) => {
+  if (!num) return "0"
+  const n = Number(num)
+  if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, "") + "M"
+  if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, "") + "K"
+  return n.toString()
 }
 
