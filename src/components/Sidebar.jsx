@@ -10,7 +10,7 @@ function Sidebar() {
 
   return (
     <div className="
-      w-48 sm:w-56 
+      w-24 sm:w-56 
       flex-shrink-0 
       p-4 
       shadow-lg 

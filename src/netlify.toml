@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/api/suggest"
+  to = "https://suggestqueries.google.com/complete/search"
+  status = 200
+  force = true
+  query = {client = "firefox", ds = "yt", q = ":q"}

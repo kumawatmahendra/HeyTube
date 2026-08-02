@@ -34,13 +34,12 @@ function Head() {
     if (!searchQuery.trim()) return
 
     try {
-      const data = await fetch(YOUTUBE_SEARCH_API + searchQuery)
+      const data = await fetch(YOUTUBE_SEARCH_API + encodeURIComponent(searchQuery))
       const json = await data.json()
-      console.log("Suggestions:", json)
       setSuggestions(json[1] || [])
       dispatch(cacheResult({ [searchQuery]: json[1] || [] }))
     } catch (error) {
-      console.log("Suggestion API error:", error)
+      console.log("Suggestion error:", error)
       setSuggestions([])
     }
   }
@@ -96,7 +95,7 @@ function Head() {
           />
           <button
             onClick={handleSearch}
-            className="border border-gray-400 border-l-0 px-3 sm:px-5 py-1.5 sm:py-1.5 bg-gray-100 rounded-r-full hover:bg-gray-200"
+            className="border border-gray-400 border-l-0 px-3 sm:px-5 py-1 sm:py-1.5 bg-gray-100 rounded-r-full hover:bg-gray-200"
           >
             🔍
           </button>
