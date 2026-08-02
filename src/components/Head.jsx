@@ -42,7 +42,7 @@ function Head() {
     dispatch(toggleMenu());
   }
   return (
-    <div className="grid grid-flow-col items-center px-2 sm:px-4 py-2 shadow-md fixed top-0 left-0 right-0 z-50 bg-white h-14 sm:h-16">
+    <div className="grid grid-flow-col items-center px-2 sm:px-4 py-2 shadow-md fixed top-0 left-0 right-0 z-50 bg-white h-16 sm:h-20">
 
       <div className="flex col-span-1 items-center gap-1">
         <img
@@ -53,9 +53,9 @@ function Head() {
         />
         <a href="/">
           <img
-            className="h-9 sm:h-12 mx-1"
+            className="h-14 sm:h-16 md:h-20 mx-1 object-contain"
             alt="Logo"
-            src="./src/assets/Logo.png"
+            src="https://images.seeklogo.com/logo-png/31/2/youtube-2017-logo-png_seeklogo-316124.png"
           />
         </a>
       </div>
