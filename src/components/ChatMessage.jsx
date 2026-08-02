@@ -1,7 +1,6 @@
 import React from 'react'
 
-function ChatMassage({ name, massage }) {
-  // name ke basis pe unique image (same name = same image)
+function ChatMessage({ name, massage }) {
   const randomImage = `https://i.pravatar.cc/150?u=${name}`
 
   return (
@@ -17,4 +16,4 @@ function ChatMassage({ name, massage }) {
   )
 }
 
-export default ChatMassage
+export default ChatMessage

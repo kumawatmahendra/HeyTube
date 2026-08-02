@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addMassage } from '../utlis/chatSlice';
-import ChatMassage from './ChatMassage'
+import ChatMessage from './ChatMessage'
 import { generateRandomMassage, generateRandomName } from '../utlis/helper';
 
 
@@ -19,7 +19,7 @@ function LiveChat() {
           massage: generateRandomMassage()
         })
       );
-    }, 1000)
+    }, 800)
     return () => clearInterval(i)
   }, []);
 
@@ -31,7 +31,7 @@ function LiveChat() {
         <div >
           {
             chatMassages.map((e, index) => (
-              <ChatMassage key={index} name={e.name} massage={e.massage} />
+              <ChatMessage key={index} name={e.name} massage={e.massage} />
             ))
           }
         </div>
