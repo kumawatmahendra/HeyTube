@@ -7,4 +7,10 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-})
+  server: {
+    proxy: {
+      '/api/suggest': 'https://suggestqueries.google.com'
+    }
+  }
+},
+)
